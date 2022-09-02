@@ -1,0 +1,103 @@
+/* ---- Navbar ---- */
+.navbar-brand img {
+  width: 30px;
+}
+#brand-name {
+  letter-spacing: 2px;
+  font-family: var(--lg-font);
+}
+.navbar {
+box-shadow:0 3px 9px 3px rgba(0, 0, 0, 0.1);
+}
+.nav-link:hover {
+  color: var(--pink) !important;
+}
+.nav-item {
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
+}
+@media(min-width: 992px) {
+  .nav-item{
+      border-bottom: none;
+  }
+}
+
+/* ---- Hero ---- */
+#hero {
+  background: url(../public/images/banner-img-1.jpg) top/cover;
+}
+.carousel-inner h1 {
+  font-size: 60px;
+  font-family: var(--lg-font);
+}
+.carousel-item .btn {
+  border-color: white !important;
+}
+
+/* ---- Collection ---- */
+.active-filter-btn {
+  background-color: var(--pink) !important;
+  color: white !important;
+  border-color: var(--pink) !important;
+}
+.collection-img span {
+  top: 20px;
+  right: 20px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+
+}
+
+/* ---- Specials ---- */
+.special-img span {
+  top: 20px;
+  right: 20px;
+}
+.special-img:hover img {
+  transform:scale(1.2);
+}
+.special-img img {
+  transition: all 0.3s ease;
+}
+
+/* ---- Banner ---- */
+#banner {
+  /* background: url(../images/offer_img.jpg) center/cover; */
+}
+#banner .row {
+  min-height: 60vh;
+}
+.banner-content span {
+  font-size: 20px;
+}
+.banner-content h2 {
+  font-size: 60px;
+  font-family: var(--lg-font);
+}
+
+/* ---- NewsLetter ---- */
+#newsletter p {
+  max-width: 600px;
+}
+#newsletter .input-group {
+  max-width: 500px;
+}
+#newsletter .form-control {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+#newsletter .btn {
+  background-color: var(--pink);
+  color: white;
+  border-color: var(--pink); 
+}
+#newsletter .btn:hover {
+  background-color: black;
+  border-color: black;
+}
+
+/* ---- Footer ---- */
+footer .brand {
+  font-family: var(--lg-font);
+  letter-spacing: 2px;
+}
