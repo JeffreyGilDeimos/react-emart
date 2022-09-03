@@ -1,22 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { collections } from "../utilities/enum";
+import { collections } from "../utilities/enums";
 import { Link } from "react-router-dom";
+import { renderLoading } from "../utilities/Loader";
 
 export default function Collection() {
   const [activeFilter, setActiveFilter] = useState("ALL");
   const [products, setProducts] = useState(collections);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (activeFilter !== "ALL") {
-      setProducts(
-        collections.filter((product) => product.filter === activeFilter)
-      );
-    } else {
-      setProducts(collections);
-    }
+    setLoading(true);
+    setTimeout(() => {
+      if (activeFilter !== "ALL") {
+        setProducts(
+          collections.filter((product) => product.filter === activeFilter)
+        );
+        setLoading(false);
+      } else {
+        setProducts(collections);
+        setLoading(false);
+      }
+    }, 800);
   }, [activeFilter]);
+
   const renderCollectionList = () => {
     return products.map((item) => (
       <div className="col-md-6 col-lg-4 col-xl-3 p-2 new" key={item.id}>
@@ -79,7 +87,7 @@ export default function Collection() {
         </div>
 
         <div className="collection-list row mt-4 gx-0 gy-3">
-          {renderCollectionList()}
+          {loading ? renderLoading() : renderCollectionList()}
         </div>
       </div>
     </section>

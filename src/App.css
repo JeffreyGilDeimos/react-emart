@@ -81,7 +81,7 @@ box-shadow:0 3px 9px 3px rgba(0, 0, 0, 0.1);
 
 /* ---- Banner ---- */
 #banner {
-  /* background: url(../images/offer_img.jpg) center/cover; */
+  background: url(../public/images/offer_img.jpg) center/cover;
 }
 #banner .row {
   min-height: 60vh;
@@ -119,4 +119,10 @@ box-shadow:0 3px 9px 3px rgba(0, 0, 0, 0.1);
 footer .brand {
   font-family: var(--lg-font);
   letter-spacing: 2px;
+}
+
+/* --------Product------- */
+
+#product {
+  padding-top: 104px;
 }
