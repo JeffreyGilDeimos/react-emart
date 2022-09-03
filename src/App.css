@@ -15,15 +15,34 @@ box-shadow:0 3px 9px 3px rgba(0, 0, 0, 0.1);
 .nav-item {
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
 }
+.nav-btns .btn {
+  background-color: white;
+  color : rgb(85, 85, 85);
+  margin: 5px;
+  border: 1px solid rgb(85, 85, 85);
+}
+.nav-btns .btn:hover {
+  background: var(--pink);
+  color: white;
+  border: var(--pink);
+}
 @media(min-width: 992px) {
   .nav-item{
       border-bottom: none;
   }
 }
+@media(max-width: 420px) {
+  .nav-btn-label{
+      display: none;
+  }
+}
+
 
 /* ---- Hero ---- */
 #hero {
   background: url(../public/images/banner-img-1.jpg) top/cover;
+  height: 100vh;
+  padding-top: 104px;
 }
 .carousel-inner h1 {
   font-size: 60px;
