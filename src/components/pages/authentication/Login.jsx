@@ -1,0 +1,83 @@
+import React, { useState } from "react";
+import "./auth.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
+
+export default function Login() {
+  const [darkMode, setDarkMode] = useState("");
+
+  return (
+    <div className="auth">
+      <div className={`page-content${darkMode} d-flex align-items-center`}>
+        <div className="container d-flex justify-content-center">
+          <div className="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+            <div className={`auth-card${darkMode}`}>
+              <div className="p-3 mt-3 d-flex justify-content-center">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs055yivZN4dfPP9jh9UmjZIx18bysfdrmRZ8vC2ebaON8ddVtMG_QiaSNwC8sooS-Ar4&usqp=CAU"
+                  alt="Site Icon"
+                  style={{ height: "50px" }}
+                />
+                <span id="brand-name" class="fw-bold fs-4 pt-3">
+                  ULTRA
+                </span>
+              </div>
+              <h5 class="text-center fst-italic">Shopping-Style-Fashion</h5>
+              <button className={`btn mt-5 mb-3 service-btn${darkMode}`}>
+                <FontAwesomeIcon icon={faFacebook} />
+                <span> Login with Facebook</span>
+              </button>
+              <button className={`btn mb-3 service-btn${darkMode}`}>
+                <FontAwesomeIcon icon={faGoogle} />
+                <span> Login with Google</span>
+              </button>
+              <hr />
+              <form>
+                <div className="mb-2 mt-5">
+                  <input
+                    type="email"
+                    className={`form-control auth-input${darkMode}`}
+                    placeholder="Email Address"
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    className={`form-control auth-input${darkMode}`}
+                    placeholder="Password"
+                  />
+                </div>
+                <button
+                  className="btn auth-btn mt-2 mb-4 bg-secondary w-100 text-white"
+                  type="submit"
+                >
+                  Login
+                </button>
+              </form>
+
+              <p className="text-center mb-1">
+                <a href="index.html" className="text-muted">
+                  Forgot Password
+                </a>
+              </p>
+              <p className="text-center mb-4">
+                Don't have an account?
+                <a href="signup.html" className="text-muted">
+                  Register here
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        id="theme-button"
+        className={`btn btn-theme${darkMode}`}
+        onClick={() => setDarkMode(darkMode ? "" : "-dark")}
+      >
+        <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
+      </button>
+    </div>
+  );
+}
