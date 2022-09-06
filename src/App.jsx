@@ -3,6 +3,7 @@ import "./App.css";
 import NavigationBar from "./components/NavigationBar";
 import AboutUs from "./components/pages/AboutUs";
 import Login from "./components/pages/authentication/Login";
+import Signup from "./components/pages/authentication/Signup";
 import ContactUs from "./components/pages/ContactUs";
 import Home from "./components/pages/Home";
 import Product from "./components/pages/Product";
@@ -19,6 +20,7 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );

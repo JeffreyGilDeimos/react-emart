@@ -3,9 +3,21 @@ import "./auth.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
+import { Form } from "react-bootstrap";
 
 export default function Login() {
   const [darkMode, setDarkMode] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // Validation
+  const [invalidUser, setInvalidUser] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("SUBMIT!!");
+  };
 
   return (
     <div className="auth">
@@ -33,28 +45,46 @@ export default function Login() {
                 <span> Login with Google</span>
               </button>
               <hr />
-              <form>
-                <div className="mb-2 mt-5">
-                  <input
+              <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-4" controlId="formEmail">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
                     type="email"
                     className={`form-control auth-input${darkMode}`}
-                    placeholder="Email Address"
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
+                    size="sm"
+                    placeholder="Enter Your Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    isInvalid={invalidUser}
+                  ></Form.Control>
+                  <Form.Control.Feedback type="invalid">
+                    Invalid User
+                  </Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group className="mb-4" controlId="formPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
                     type="password"
                     className={`form-control auth-input${darkMode}`}
-                    placeholder="Password"
-                  />
-                </div>
+                    size="sm"
+                    placeholder="Enter Your Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    isInvalid={invalidUser}
+                  ></Form.Control>
+                  <Form.Control.Feedback type="invalid">
+                    Invalid User
+                  </Form.Control.Feedback>
+                </Form.Group>
+
                 <button
                   className="btn auth-btn mt-2 mb-4 bg-secondary w-100 text-white"
                   type="submit"
                 >
                   Login
                 </button>
-              </form>
+              </Form>
 
               <p className="text-center mb-1">
                 <a href="index.html" className="text-muted">
@@ -63,9 +93,9 @@ export default function Login() {
               </p>
               <p className="text-center mb-4">
                 Don't have an account?
-                <a href="signup.html" className="text-muted">
+                <Link to="/signup" className="text-muted">
                   Register here
-                </a>
+                </Link>
               </p>
             </div>
           </div>
