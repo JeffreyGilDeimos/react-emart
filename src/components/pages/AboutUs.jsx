@@ -42,7 +42,6 @@ export default function AboutUs() {
                 asperiores! Fugit, quam quis! Quia, ea harum!
               </p>
             </div>
-
             <div className="col-lg-6 order-lg-0">
               <img
                 src="images/about_us.jpg"
@@ -61,7 +60,6 @@ export default function AboutUs() {
               Popular Of This Year
             </h2>
           </div>
-
           <div className="row">
             <div className="col-md-6 col-lg-4 g-3 row">
               <h3 className="fs-5">Top Rated</h3>
@@ -78,7 +76,6 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
-
       <Footer />
     </>
   );
