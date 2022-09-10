@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { collections } from "../utilities/enums";
 import { Link } from "react-router-dom";
-import { renderLoading } from "../utilities/loader";
+import Skeleton from "react-loading-skeleton";
 
 export default function Collection() {
   const [activeFilter, setActiveFilter] = useState("ALL");
@@ -24,6 +24,25 @@ export default function Collection() {
       }
     }, 1000);
   }, [activeFilter]);
+
+  const renderLoading = () => {
+    return (
+      <div className="row g-3">
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+      </div>
+    );
+  };
 
   const renderCollectionList = () => {
     return products.map((item) => (

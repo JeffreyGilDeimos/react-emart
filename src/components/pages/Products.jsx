@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
 import { Link } from "react-router-dom";
-import { renderLoading } from "../../utilities/loader";
 
 export default function Products() {
   const [loading, setLoading] = useState(false);
@@ -30,6 +30,25 @@ export default function Products() {
   const filterProducts = (category) => {
     const updatedList = data.filter((item) => item.category === category);
     setFilteredProducts(updatedList);
+  };
+
+  const renderLoading = () => {
+    return (
+      <div className="row g-3">
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+      </div>
+    );
   };
 
   const renderProducts = () => {
