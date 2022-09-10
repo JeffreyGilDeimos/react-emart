@@ -2,7 +2,6 @@ import React from "react";
 
 export default function Banner() {
   return (
-    // <!-- ---- Banner ---- -->
     <section id="banner" className="py-5">
       <div className="container">
         <div className="row d-flex align-items-center">

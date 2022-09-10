@@ -1,6 +1,6 @@
-import firebase from 'firebase/compat/app'
+import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import 'firebase/compat/firestore'
+import 'firebase/compat/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -15,7 +15,10 @@ const firebaseConfig = {
   // use this to initialize the firebase app
   const firebaseapp = firebase.initializeApp(firebaseConfig);
 
-  // use for db
-  const db = firebaseapp.firestore()
+  // Use for db
+const db = firebaseapp.firestore()
+const auth = firebase.auth();
+const googleProvider = new firebase.auth.GoogleAuthProvider();
+const facebookProvider = new firebase.auth.FacebookAuthProvider();
 
-  export { db }
+export { db, auth, googleProvider, facebookProvider } 

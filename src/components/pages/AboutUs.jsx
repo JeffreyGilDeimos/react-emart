@@ -24,29 +24,29 @@ export default function AboutUs() {
 
   return (
     <>
-      <section id="about-us">
+      <section id="aboutUs">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-6 text-center order-lg-1">
+            <div className="col-lg-6 text-center text-lg-1 order-lg-1">
               <div className="title pt-3 pb-5">
                 <h2 className="position-relative d-inline-block">About Us</h2>
               </div>
               <p className="lead text-muted">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis,
-                voluptatibus.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam
+                nihil quisquam nemo et omnis?
               </p>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quibusdam sed, placeat minima autem magnam illo quisquam iste
-                eligendi reiciendis sit aspernatur ab assumenda? Repellat
-                recusandae hic explicabo aspernatur.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum
+                quidem doloribus culpa, doloremque quibusdam consequatur
+                eligendi repellat labore animi eius dolor repellendus quod
+                asperiores! Fugit, quam quis! Quia, ea harum!
               </p>
             </div>
 
             <div className="col-lg-6 order-lg-0">
               <img
                 src="images/about_us.jpg"
-                alt="about"
+                alt="about-us"
                 className="img-fluid"
               />
             </div>
@@ -58,7 +58,7 @@ export default function AboutUs() {
         <div className="container">
           <div className="title text-center pt-3 pb-5">
             <h2 className="position-relative d-inline-block">
-              Popular of This Year
+              Popular Of This Year
             </h2>
           </div>
 
@@ -67,18 +67,18 @@ export default function AboutUs() {
               <h3 className="fs-5">Top Rated</h3>
               {renderPopular(topRated)}
             </div>
-
             <div className="col-md-6 col-lg-4 g-3 row">
               <h3 className="fs-5">Best Selling</h3>
               {renderPopular(bestSelling)}
             </div>
             <div className="col-md-6 col-lg-4 g-3 row">
-              <h3 className="fs-5">On Sale</h3>
+              <h3 className="fs-5">On sale</h3>
               {renderPopular(onSale)}
             </div>
           </div>
         </div>
       </section>
+
       <Footer />
     </>
   );

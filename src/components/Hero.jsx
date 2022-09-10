@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    // <!-- ---- Hero ---- -->
     <section id="hero">
       <Carousel className="container h-100 d-flex align-items-center">
         <Carousel.Item className="text-center">

@@ -1,7 +1,7 @@
 import React from "react";
-import { specials } from "../utilities/enums";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { specials } from "../utilities/enums";
 
 export default function Specials() {
   const renderSpecials = () => {
@@ -21,9 +21,7 @@ export default function Specials() {
       </div>
     ));
   };
-
   return (
-    // <!-- ---- Specials ---- -->
     <section id="specials" className="py-5">
       <div className="container">
         <div className="title text-center py-5">
@@ -31,9 +29,9 @@ export default function Specials() {
             Special Selection
           </h2>
         </div>
-      </div>
 
-      <div className="row">{renderSpecials()}</div>
+        <div className="row">{renderSpecials()}</div>
+      </div>
     </section>
   );
 }

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { collections } from "../utilities/enums";
 import { Link } from "react-router-dom";
-import { renderLoading } from "../utilities/Loader";
+import { renderLoading } from "../utilities/loader";
 
 export default function Collection() {
   const [activeFilter, setActiveFilter] = useState("ALL");
@@ -22,7 +22,7 @@ export default function Collection() {
         setProducts(collections);
         setLoading(false);
       }
-    }, 800);
+    }, 1000);
   }, [activeFilter]);
 
   const renderCollectionList = () => {
@@ -32,6 +32,7 @@ export default function Collection() {
           <Link to={`/product/${item.id}`}>
             <img src={item.image} alt={item.name} className="w-100" />
           </Link>
+
           <span className="bg-primary position-absolute d-flex align-items-center justify-content-center text-white">
             sale
           </span>
@@ -62,7 +63,6 @@ export default function Collection() {
   };
 
   return (
-    // <!-- ---- Collection ---- -->
     <section id="collection" className="py-5">
       <div className="container">
         <div className="title text-center">
@@ -75,7 +75,7 @@ export default function Collection() {
               All
             </button>
             <button className="btn m-2" onClick={() => setActiveFilter("BEST")}>
-              Best Seller
+              Best Sellers
             </button>
             <button className="btn m-2" onClick={() => setActiveFilter("FEAT")}>
               Featured
@@ -84,10 +84,9 @@ export default function Collection() {
               New Arrival
             </button>
           </div>
-        </div>
-
-        <div className="collection-list row mt-4 gx-0 gy-3">
-          {loading ? renderLoading() : renderCollectionList()}
+          <div className="collection-list row mt-4 gx-0 gy-3">
+            {loading ? renderLoading() : renderCollectionList()}
+          </div>
         </div>
       </div>
     </section>

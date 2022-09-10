@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { renderLoading } from "../../utilities/Loader";
+import { renderLoading } from "../../utilities/loader";
 
 export default function Products() {
   const [loading, setLoading] = useState(false);
@@ -23,6 +23,7 @@ export default function Products() {
         setComponentMounted(false);
       };
     };
+
     getProducts();
   }, [componentMounted]);
 
@@ -52,7 +53,7 @@ export default function Products() {
               className="btn btn-outline-dark me-2"
               onClick={() => filterProducts("women's clothing")}
             >
-              Women's Cloting
+              Women's Clothing
             </button>
             <button
               className="btn btn-outline-dark me-2"
@@ -64,10 +65,11 @@ export default function Products() {
               className="btn btn-outline-dark me-2"
               onClick={() => filterProducts("electronics")}
             >
-              Electronic
+              Electronics
             </button>
           </div>
         </div>
+
         {filteredProducts.map((product) => (
           <React.Fragment key={product.id}>
             <div className="col-md-3 mb-4">
@@ -82,7 +84,7 @@ export default function Products() {
                   <h5 className="card-title mb-0">
                     {product.title.substring(0, 12)}...
                   </h5>
-                  <p className="card-text lead fw-bold">$ {product.price}</p>
+                  <p className="card-tex lead fw-bold">$ {product.price}</p>
                   <Link
                     to={`/product/${product.id}`}
                     className="btn btn-outline-dark"
@@ -109,6 +111,7 @@ export default function Products() {
             <hr />
           </div>
         </div>
+
         <div className="row justify-content-center">
           {loading ? renderLoading() : renderProducts()}
         </div>

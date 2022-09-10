@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import firebase from "firebase/compat/app";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
-import { Button, Form, Modal } from "react-bootstrap";
-import { db } from "../../../firebase";
+import { Form, Modal } from "react-bootstrap";
+import { auth, db } from "../../../firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useSelector } from "react-redux";
 
 export default function Signup() {
   const [darkMode, setDarkMode] = useState("");
@@ -21,18 +23,28 @@ export default function Signup() {
   const [invalidPassword, setInvalidPassword] = useState(false);
 
   const [userList] = useCollection(db.collection("users"));
+  const [user] = useAuthState(auth);
+  const activeUser = useSelector((state) => state.activeUser);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user || activeUser.email) {
+      navigate("/");
+    }
+  });
 
   const checkIfValid = () => {
     let isValid = true;
     userList?.docs.forEach((doc) => {
-      // Check if username is Valid
+      // Check if username is valid
       if (doc.data().username === username || !username) {
         isValid = false;
         setInvalidUsername(true);
       } else {
         setInvalidUsername(false);
       }
-      // Check if email is Valid
+
+      // Check if email is valid
       if (doc.data().email === email || !email) {
         isValid = false;
         setInvalidEmail(true);
@@ -41,13 +53,14 @@ export default function Signup() {
       }
     });
 
-    //Check if password is same with confirm Password
+    // Check if password is same with confirmPassword
     if (password !== confirmPassword || !password) {
       setInvalidPassword(true);
       isValid = false;
     } else {
       setInvalidPassword(false);
     }
+
     return isValid;
   };
 
@@ -85,12 +98,11 @@ export default function Signup() {
                   alt="Site Icon"
                   style={{ height: "50px" }}
                 />
-                <span id="brand-name" class="fw-bold fs-4 pt-3">
+                <span id="brand-name" className="fw-bold fs-4 pt-3">
                   ULTRA
                 </span>
               </div>
-              <h5 class="text-center fst-italic">Shopping-Style-Fashion</h5>
-
+              <h5 className="text-center fst-italic">Shopping-Style-Fashion</h5>
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-2">
                   <Form.Label>Username</Form.Label>
@@ -133,7 +145,7 @@ export default function Signup() {
                     isInvalid={invalidPassword}
                   ></Form.Control>
                   <Form.Control.Feedback type="invalid">
-                    The password confirmation does not match.
+                    The password confirmation does not match
                   </Form.Control.Feedback>
                 </Form.Group>
 
@@ -148,7 +160,7 @@ export default function Signup() {
                     isInvalid={invalidPassword}
                   ></Form.Control>
                   <Form.Control.Feedback type="invalid">
-                    The password confirmation does not match.
+                    The password confirmation does not match
                   </Form.Control.Feedback>
                 </Form.Group>
 
@@ -162,12 +174,12 @@ export default function Signup() {
                     Successful Registration!
                   </Modal.Body>
                   <Modal.Footer>
-                    <Button
+                    <button
                       variant="secondary"
                       onClick={() => closeRegistration()}
                     >
                       Close
-                    </Button>
+                    </button>
                   </Modal.Footer>
                 </Modal>
 
@@ -189,6 +201,7 @@ export default function Signup() {
           </div>
         </div>
       </div>
+
       <button
         id="theme-button"
         className={`btn btn-theme${darkMode}`}

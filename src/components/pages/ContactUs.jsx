@@ -25,7 +25,7 @@ export default function ContactUs() {
                   name="message"
                   id="message"
                   cols="30"
-                  row="4"
+                  rows="4"
                   className="form-control"
                 ></textarea>
                 <button type="submit" className="btn btn-danger my-2">
@@ -36,6 +36,7 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
+
       <br />
       <br />
       <br />
