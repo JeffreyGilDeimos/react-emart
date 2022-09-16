@@ -103,6 +103,7 @@ export default function Signup() {
                 </span>
               </div>
               <h5 className="text-center fst-italic">Shopping-Style-Fashion</h5>
+
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-2">
                   <Form.Label>Username</Form.Label>
